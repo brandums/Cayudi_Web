@@ -2,7 +2,7 @@
 
 Cayudi es una plataforma web innovadora para la venta de cursos online, que ofrece una experiencia de usuario enriquecida y un sistema robusto de gestión de contenidos. Está diseñada para permitir la interacción entre instructores y estudiantes mediante cursos interactivos, pagos seguros y la gestión de contenido multimedia. Además, incluye un sistema de puntuación y un blog interactivo por cada curso.
 
-[http://cayudi-001-site1.anytempurl.com](http://cayudi-001-site1.anytempurl.com)
+[visita el sitio](http://cayudi-001-site1.anytempurl.com)
 
 ## Características
 
