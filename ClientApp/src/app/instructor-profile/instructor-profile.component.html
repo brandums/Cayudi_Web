@@ -1,0 +1,12 @@
+<div class="row col-12">
+  <p class="subtitle">Instructor</p>
+  <p *ngIf="user" class="trainer-name">{{ user.name }}</p>
+  <p class="career" *ngIf="user?.profession">{{ user?.profession }}</p>
+
+  <div class="content">
+    <img src="data:image/jpg;base64, {{user?.profImage}}" alt="Imagen" class="image-content">
+    <p *ngIf="user">
+      {{ user.description }}
+    </p>
+  </div>
+</div>

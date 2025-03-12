@@ -1,0 +1,30 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a id="tab1" #tab1 class="nav-link" (click)="showTab('tab1')" [class.active]="activeTab === 'tab1'">Videos</a>
+  </li>
+  <li class="nav-item">
+    <a id="tab2" #tab2 class="nav-link" (click)="showTab('tab2')" [class.active]="activeTab === 'tab2'">Bibliografia</a>
+  </li>
+  <li class="nav-item">
+    <a id="tab3" class="nav-link" (click)="showTab('tab3')" [class.active]="activeTab === 'tab3'">Certificaciones</a>
+  </li>
+  <li class="nav-item">
+    <a id="tab4" #tab4 class="nav-link" (click)="showTab('tab4')" [class.active]="activeTab === 'tab4'">Pruebas finales</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div *ngIf="activeTab === 'tab1'" class="tab-pane fade show active d-flex flex-column gap-3">
+    <p class="title m-0">{{videoTitle}}</p>
+    <app-ep-videoplayer (videoName)="videoTitle = $event" [courseId]="courseId"></app-ep-videoplayer>
+  </div>
+  <div *ngIf="activeTab === 'tab2'" class="tab-pane fade show active">
+    <app-course-files [courseId]="courseId"></app-course-files>
+  </div>
+  <div *ngIf="activeTab === 'tab3'" class="tab-pane fade show active">
+    <app-course-certs [courseID]="courseId" [isAdmin]="isAdmin"></app-course-certs>
+  </div>
+  <div *ngIf="activeTab === 'tab4'" class="tab-pane fade show active">
+    <app-course-test [courseID]="courseId"></app-course-test>
+  </div>
+</div>

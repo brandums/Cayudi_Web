@@ -1,0 +1,34 @@
+<div class="container" *ngIf="course">
+  <div class="row">
+    <div class="col-6 column1">
+      <img src="../../assets/trabajadores_medicos.jpg"/>
+    </div>
+    <div class="col-6 column2">
+      <p class="info">Curso Online, Presencial</p>
+
+      <h1 class="title">{{ course.tittle }}</h1>
+      <p class="price"> $ {{ course.price }}</p>
+      <p class="description"> {{ course.description }} </p>
+
+      <p class="modality"> Modalidad del curso</p>
+      <div>
+        <p class="d-inline-flex gap-3">
+          <a class="option" [class.active]="opcionActiveMode === 'virtual'" (click)="changeOptionMode('virtual')" role="button" [ngStyle]="{'border': opcionActiveMode === 'virtual' ? '1px solid #0e679b' : '1px solid rgba(222, 222, 222, 0.25)', 'color': opcionActiveMode === 'virtual' ? '#0e679b' : '0e679b'}">
+            Virtual
+          </a>
+          <a class="option" [class.active]="opcionActiveMode === 'presencial'" (click)="changeOptionMode('presencial')" role="button" [ngStyle]="{'border': opcionActiveMode === 'presencial' ? '1px solid #0e679b' : '1px solid rgba(222, 222, 222, 0.25)', 'color': opcionActiveMode === 'presencial' ? '#0e679b' : '0e679b'}">
+            Presencial
+          </a>
+        </p>
+        <div [ngClass]="{'collapse': opcionActiveMode !== 'virtual', 'card': true, 'card-body': true}" id="virtual">
+          Lleva el curso 100% online y accede a nuestra plataforma desde tu dispositivo de preferencia.
+        </div>
+        <div [ngClass]="{'collapse': opcionActiveMode !== 'presencial', 'card': true, 'card-body': true}" id="presencial">
+          Lleva el curso 100% online y accede a nuestra plataforma desde tu dispositivo de preferencia. Además, una vez terminados los módulos, asistirás a las prácticas presenciales en nuestras instalaciones, con equipos de última generación y pacientes citados con casos clínicos relacionados al curso.
+        </div>
+      </div>
+
+      <button class="button-buy" type="button" (click)="buyCourse()" [disabled]="isBuyButtonDisabled">Comprar ahora</button>
+    </div>
+  </div>
+</div>

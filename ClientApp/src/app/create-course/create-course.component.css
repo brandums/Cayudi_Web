@@ -1,0 +1,92 @@
+.modal-header {
+  background: #1c86b9;
+}
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+.modal-body form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+
+.image-upload-container {
+  display: flex;
+  min-height: 100px;
+  flex-direction: column;
+  justify-content:center;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+}
+
+  .image-upload-container:hover {
+    border: 2px dashed #57baa3;
+  }
+
+.image-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.selected-image {
+  max-width: 100%;
+  max-height: auto;
+  display: none;
+}
+
+
+.input-title {
+  width: 100%;
+  padding-left: 10px;
+  border: 1px solid rgba(28, 29, 31, 0.15);
+  border-radius: 3px;
+  color: rgba(28, 29, 31, 0.70);
+}
+
+.input-description {
+  width: 100%;
+  padding-left: 10px;
+  border: 1px solid rgba(28, 29, 31, 0.15);
+  border-radius: 3px;
+  color: rgba(28, 29, 31, 0.70);
+}
+
+select {
+  width: 100%;
+  padding-left: 8px 10px;
+  border: 1px solid rgba(28, 29, 31, 0.15);
+  border-radius: 3px;
+  color: rgba(28, 29, 31, 0.70);
+}
+
+.create-button {
+  border-radius: 8px;
+  background: #0e679b;
+  border: 1px solid #0e679b;
+  color: #FFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16.8px;
+  padding: 13px;
+}
+
+.input-date {
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid rgba(28, 29, 31, 0.15);
+  border-radius: 3px;
+  color: rgba(28, 29, 31, 0.70);
+}
+  .input-date::-webkit-outer-spin-button,
+  .input-date::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }

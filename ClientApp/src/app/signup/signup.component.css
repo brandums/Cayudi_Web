@@ -1,0 +1,49 @@
+.modal-header {
+  background: #1c86b9;
+}
+
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+  .modal-header button {
+    box-shadow: none;
+  }
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  ;
+  gap: 15px;
+}
+.login {
+  background: #0e679b;
+  border: 1px solid #0e679b;
+  color: #FFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16.8px;
+  padding: 13px;
+}
+
+.modal-footer p {
+  font-size: 14px;
+}
+
+.modal-footer a {
+  color: #1d9cd1;
+  text-decoration: underline;
+}
+
+
+.error-messages {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #f8d7da;
+}
+
+.error-message {
+  color: #721c24;
+}

@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand p-0" href="/">
+      <img src="../../assets/cayudi.svg" style="width:135px" />
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-xl-2 col-lg-1">
+
+          </div>
+
+          <div class="col-5">
+            <div class="navbar-search">
+              <div class="search-content">
+                <i class="fas fa-search"></i>
+                <input type="search" class="search-input" placeholder="Buscar cualquier cosa" (keydown.enter)="searchCourse()" [(ngModel)]="search">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-3 d-flex justify-content-around" style="padding:0 3%;">
+            <a href="#especialidades" class="navbar-text">Categorias</a>
+            <a *ngIf="isLogin && user && user.roleID === 1" class="navbar-text" href="/users-management">Administracion</a>
+            <a *ngIf="!isLogin" class="navbar-text" [routerLink]="['/course-list/all']">Cursos</a>
+            <a *ngIf="isLogin && user && user.roleID === 2" class="navbar-text" [routerLink]="['/course-list/mis-cursos']">Cursos</a>
+            <a *ngIf="isLogin && user && user.roleID === 2" class="navbar-text" [routerLink]="['/course-list/favorite']">
+              <img src="../../assets/shop-kart.svg" style="width:25px;" />
+            </a>
+          </div>
+
+          
+
+          <div *ngIf="!isLogin" class="col-xl-2 col-lg-3 justify-content-center">
+            <div class="navbar-buttons">
+              <button class="button_login" data-bs-toggle="modal" data-bs-target="#login"><p>Inicia Sesión</p></button>
+              <button class="button_singup" data-bs-toggle="modal" data-bs-target="#signup"><p>Regístrate</p></button>
+            </div>
+          </div>
+
+          <div *ngIf="isLogin && user" class="col-xl-2 col-lg-3 justify-content-center" style="border-left: 1px solid rgba(106, 111, 115, 0.30);">
+            <div class="d-flex flex-row-reverse">
+              <div class="dropdown">
+                <button class="user-button" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="d-flex gap-4 align-items-center justify-content-end">
+                    <p class="user-name m-0">{{user.name}}</p>
+                    <div class="user-circle" [hidden]="hasLoginImg">
+                      <p class="m-0">{{userInitials}}</p>
+                    </div>
+                    <div class="user-circle" [hidden]="UseDefImg">
+                      <img src="data:image/jpg;base64, {{user.profImage}}" />
+                    </div>
+                  </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" [routerLink]="['/perfil', user.name]" [state]="{ userId: user.id }">Perfil</a></li>
+                  <li><a class="dropdown-item" [routerLink]="['/course-list/mis-cursos']">Mis cursos</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" (click)="logout()">Cerrar Sesión</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

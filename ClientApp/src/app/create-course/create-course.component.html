@@ -1,0 +1,35 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear un nuevo curso</h5>
+      <button type="button" id="bClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cleanForm()"></button>
+    </div>
+    <div class="modal-body">
+      <form (submit)="validationForm($event)">
+        <input class="input-title" placeholder="Titulo del curso" type="text" id="Tittle" name="Tittle" [(ngModel)]="courseData.Tittle" (input)="removeInvalidClass('Tittle')" required>
+        <textarea class="input-description" placeholder="Titulo descriptivo" id="Subtitle" name="Subtitle" [(ngModel)]="courseData.Subtitle" (input)="removeInvalidClass('Subtitle')" required></textarea>
+        <select *ngIf="categories" class="input-category" id="CourseCategoryID" name="CourseCategoryID" [(ngModel)]="courseData.CourseCategoryID" (input)="removeInvalidClass('CourseCategoryID')" required>
+          <option value="" disabled selected>Selecciona una categoría</option>
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+        <select *ngIf="users" class="input-users" id="TrainerID" name="TrainerID" [(ngModel)]="courseData.TrainerID" (input)="removeInvalidClass('TrainerID')" required>
+          <option value="" disabled selected>Selecciona un docente</option>
+          <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+        </select>
+
+        <div class="row">
+          <div class="col-6">
+            <input class="input-date" type="date" id="StartDate" name="StartDate" [(ngModel)]="courseData.StartDate" [min]="minDate()" (input)="removeInvalidClass('StartDate')" required>
+          </div>
+          <div class="col-6">
+            <input class="input-date" placeholder="Duracion del curso en dias" type="number" id="DurationTime" name="DurationTime" [(ngModel)]="courseData.DurationTime" (input)="removeInvalidClass('DurationTime')" required>
+          </div>
+        </div>
+
+        <input class="input-title" placeholder="Precio del curso $" type="text" id="Price" name="Price" [(ngModel)]="courseData.Price" (input)="removeInvalidClass('Price')" required>
+
+        <button class="create-button" type="submit">Crear Curso</button>
+      </form>
+    </div>
+  </div>
+</div>

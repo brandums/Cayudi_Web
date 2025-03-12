@@ -1,0 +1,83 @@
+img {
+  margin: 15px;
+  width: 250px;
+  height: 160px;
+  border: 1px solid #0e679b;
+  border-radius: 0;
+}
+
+.cert-tittle {
+  color: #1c86b9;
+}
+
+.subtitle {
+  color: #1c86b9;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+
+.create-button {
+  display: inline-flex;
+  min-width: 80px;
+  padding: 6px 18px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #57baa3;
+  background: #57baa3;
+  white-space: nowrap;
+  margin: 0;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+
+.trash-icon {
+  margin: 12px;
+  cursor: pointer;
+  color: gray;
+}
+
+
+
+.head-btns {
+  background-color: transparent;
+  height: 100%;
+  width: 12%;
+  min-width: 40px;
+}
+
+.uploader {
+  background-color: transparent;
+  position: absolute;
+  justify-content: end;
+  align-items: end;
+  height: 40px;
+  min-width: 50px;
+  width: 98%;
+  color: transparent;
+  margin-top: 5px;
+}
+
+.file-uploader {
+  width: 40px;
+  height: 40px;
+}
+
+
+.modal-header {
+  background: #1c86b9;
+}
+
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+  .modal-header button {
+    box-shadow: none;
+  }

@@ -1,0 +1,33 @@
+.modal-header {
+  background: #1c86b9;
+}
+
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.input-title {
+  width: 100%;
+  padding-left: 10px;
+  border: 1px solid rgba(28, 29, 31, 0.15);
+  border-radius: 3px;
+}
+
+.create-button {
+  border-radius: 8px;
+  background: #0e679b;
+  border: 1px solid #0e679b;
+  color: #FFF;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16.8px;
+  padding: 13px;
+}

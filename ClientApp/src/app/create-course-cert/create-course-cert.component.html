@@ -1,0 +1,28 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear un nuevo Certificado</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form (submit)="createCert()">
+        <input class="input-title" placeholder="Nombre del certificado" type="text" id="Name" name="Name" [(ngModel)]="courseCert.tittle" required>
+        <input class="input-title" placeholder="Descripcion del certificado" type="text" id="Description" name="Description" [(ngModel)]="courseCert.certDescription" required>
+        <input *ngIf="requeriments.length > 0" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment1" name="Requeriment1" [(ngModel)]="requeriments[0]" required>
+        <input *ngIf="requeriments.length > 1" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment2" name="Requeriment2" [(ngModel)]="requeriments[1]" required>
+        <input *ngIf="requeriments.length > 2" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment3" name="Requeriment3" [(ngModel)]="requeriments[2]" required>
+        <input *ngIf="requeriments.length > 3" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment4" name="Requeriment4" [(ngModel)]="requeriments[3]" required>
+        <input *ngIf="requeriments.length > 4" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment5" name="Requeriment5" [(ngModel)]="requeriments[4]" required>
+        <input *ngIf="requeriments.length > 5" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment6" name="Requeriment6" [(ngModel)]="requeriments[5]" required>
+        <input *ngIf="requeriments.length > 6" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment7" name="Requeriment7" [(ngModel)]="requeriments[6]" required>
+        <input *ngIf="requeriments.length > 7" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment8" name="Requeriment8" [(ngModel)]="requeriments[7]" required>
+        <input *ngIf="requeriments.length > 8" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment9" name="Requeriment9" [(ngModel)]="requeriments[8]" required>
+        <input *ngIf="requeriments.length > 9" class="input-title" placeholder="Requerimiento" type="text" id="Requeriment10" name="Requeriment10" [(ngModel)]="requeriments[9]" required>
+
+        <button type="button" (click)="addRequeriment()" class="btn btn-secondary" [disabled]="requeriments.length === 10">Agregar requerimiento</button>
+
+        <button class="create-button" type="submit" data-bs-dismiss="modal">Crear Test</button>
+      </form>
+    </div>
+  </div>
+</div>

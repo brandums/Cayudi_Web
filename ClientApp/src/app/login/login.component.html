@@ -1,0 +1,41 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Inicia Sesión con tu cuenta de Cayudi</h5>
+      <button id="CloseModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form class="mt-3">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+          <input [(ngModel)]="loginDto.email" name="email" type="email" class="form-control" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input [(ngModel)]="loginDto.password" name="password" [type]="showPassword ? 'text' : 'password'" class="form-control">
+        </div>
+        <div class="mb-3 form-check">
+          <input [(ngModel)]="showPassword" (change)="togglePasswordVisibility()" type="checkbox" class="form-check-input" id="showPassword" style="cursor:pointer">
+          <label class="form-check-label">Mostrar contraseña</label>
+        </div>
+        <div class="mb-3 text-end">
+          <a class="form-check-label" (click)="changePassword()" style="cursor:pointer" data-bs-dismiss="modal">Olvidaste tu contraseña?</a>
+        </div>
+        <div class="error-messages">
+          <p *ngFor="let message of errorMessages" class="error-message">{{ message }}</p>
+        </div>
+        <button (click)="login(loginDto)" class="btn btn-primary col-12 login">Inicia Sesión</button>
+      </form>
+      <!--<button type="button" class="btn btn-outline-secondary col-12">
+        <div class="d-flex aling-items-center justify-content-center gap-3 text-center ">
+          <img src="../../assets/google.svg" style="width:30px" />
+          <p class="p-0 m-0 mt-1 mb-0 ms-2 fw-bold">Continua con Google</p>
+        </div>
+      </button>-->
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <p>No tienes una cuenta? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#signup">Regístrate</a></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+<div class="container-fluid" (click)="handleClick()">
+
+  <div class="container ">
+    <div class="row align-items-start">
+      <div class="col-12 align-self-center">
+        <h2 class="tittle">Perfil de Usuario</h2>
+      </div>
+
+
+      <div class="col-xl-4 col-m-12 offset-1 align-self-center">
+        <div class="upload-block">
+          <div class="user-prof-img">
+            <img src="data:image/jpg;base64, {{user.profImage}}" />
+          </div>
+
+          <div class="loader">
+            <app-file-uploader [fileInfo]="fileInfo" [imageType]="userIcon"><</app-file-uploader>
+          </div>
+          <div class="verified-section">
+            <div class="ver-container" *ngIf="user.isVerified">
+              <p>
+                <img src="../../assets/ver.svg" />
+                Verificado
+              </p>
+            </div>
+            <div class="n-ver-container" *ngIf="!user.isVerified" title="Para cambiar su estado a verificado es necesario adjuntar archivos de imagen relacionados con su titulo profesional y carnet de identidad amberso y reverso">
+              <p>
+                <img src="../../assets/notv.svg" />
+                No verificado
+              </p>
+            </div>
+          </div>
+        </div>
+        <p class="prof-tittle"><strong>Nombre:</strong></p>
+        <p *ngIf="!isEditingName" (dblclick)="startEditing('name')">{{ user.name }}</p>
+        <p *ngIf="!isEditingName && !user.name" (dblclick)="startEditing('name')">Ingrese su nombre completo...</p>
+        <input class="form-control" placeholder="Ingrese su nombre completo..." *ngIf="isEditingName" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/name')" (click)="handleEditClick($event)">
+
+        <p class="prof-tittle"><strong>Correo Electrónico:</strong></p>
+        <p>{{ user.email }}</p>
+
+        <p class="prof-tittle"><strong>Numero de Celular:</strong></p>
+        <p class="prof-data" *ngIf="!isEditingPhoneNumber" (dblclick)="startEditing('phoneNumber')">{{ user.phoneNumber }}</p>
+        <p *ngIf="!isEditingPhoneNumber && !user.phoneNumber" (dblclick)="startEditing('phoneNumber')">Ingrese su numero de celular...</p>
+        <input class="form-control" placeholder="Ingrese su numero de celular..." *ngIf="isEditingPhoneNumber" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/phoneNumber')" (click)="handleEditClick($event)">
+
+        <p class="prof-tittle"><strong>Profesion:</strong></p>
+        <p class="prof-data" *ngIf="!isEditingProfession" (dblclick)="startEditing('profession')">{{ user.profession }}</p>
+        <p *ngIf="!isEditingProfession && !user.profession" (dblclick)="startEditing('profession')">Ingrese su profesion...</p>
+        <input class="form-control" placeholder="Ingrese su profesion..." *ngIf="isEditingProfession" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/profession')" (click)="handleEditClick($event)">
+
+        <p class="prof-tittle"><strong>Descripción:</strong></p>
+        <p class="prof-tittle" *ngIf="!isEditingDescription" (dblclick)="startEditing('description')">{{ user.description }}</p>
+        <p *ngIf="!isEditingDescription && !user.description" (dblclick)="startEditing('description')">Ingrese una descripcion...</p>
+        <textarea ng-trim="false" class="form-control" maxLength="500" placeholder="Ingrese una descripcion..." *ngIf="isEditingDescription" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/description')" (click)="handleEditClick($event)">
+        </textarea>
+      </div>
+
+      <div class="col-xl-6 col-m-12 img-container">
+        <p class="text-center"><strong>Documentos</strong></p>
+        <div class="upload-block container-fluid">
+          <div>
+            <div class="card-group justify-content-center">
+              <div *ngFor="let file of images; let $i = index">
+                <div class="card pdf-file" (click)="openModal($i)"
+                     data-toggle="tooltip" data-placement="top" title="{{file.tittle}}">
+                  <img src="data:image/jpg;base64, {{file.source}}" />
+                </div>
+                <div class="d-flex justify-content-center" *ngIf="user.roleID == 1">
+                  <button type="button" class="btn btn-danger" (click)="openConfModal($i)" data-bs-toggle="modal" data-bs-target="#confirm-modal">
+                    <img src="src=../../assets/trash.svg" style="width:auto; height:auto ">
+                  </button>
+                </div>
+              </div>
+              <div class="pdf-file">
+                <app-file-uploader [fileInfo]="fileInfo_images"></app-file-uploader>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center" *ngIf="user.roleID == 1">
+          <button *ngIf="!user.isVerified" type="button" class="btn btn-success ver-btn" data-bs-toggle="modal" data-bs-target="#confirm-ver-modal">
+            Verificar usuario
+          </button>
+          <button *ngIf="user.isVerified" type="button" class="btn btn-danger ver-btn" data-bs-toggle="modal" data-bs-target="#confirm-remove-ver-modal">
+            Remover estado verificado
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-dialog-centered modal-dialog-scrollable pdf-modal" tabindex="-1"
+     role="dialog"
+     [ngStyle]="{'display':displayStyle}">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">{{currentImage.tittle}}</h5>
+      <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+    </div>
+    <div class="modal-body ">
+      <img src="data:image/jpg;base64, {{currentImage.source}}" />
+    </div>
+  </div>
+</div>
+
+<div id="confirm-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar el archivo: {{currentImage.tittle}}?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="delete()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="confirm-ver-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de cambiar el estado del usuario {{ user.name }} a verifcado?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="verifyUser()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="confirm-remove-ver-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de cambiar el estado del usuario {{ user.name }} a no verificado?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="removeUserVerification()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

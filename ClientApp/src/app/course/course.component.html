@@ -1,0 +1,9 @@
+<app-course-page *ngIf="!isLock && course"
+                 [user]="user"
+                 [course]="course"
+                 (isAdminChange)="onAdminChange($event)"></app-course-page>
+
+<app-course-lock *ngIf="isLock && course"
+                 [user]="user"
+                 [course]="course"
+                 (isAdminChange)="onAdminChange($event)"></app-course-lock>

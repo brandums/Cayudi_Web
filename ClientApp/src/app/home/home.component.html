@@ -1,0 +1,111 @@
+<app-carousel></app-carousel>
+
+<div class="container-fluid">
+  <div class="container d-flex flex-column">
+    <p class="title-reservation text-center">Nuestra programación anual de cursos</p>
+    <div class="content-reservation-wrapper position-relative">
+      <button class="button-arrow al left-button" (click)="scrollCourses(-1)" *ngIf="showLeftCourses">
+        <i class="fas fa-greater-than fa-flip-both"></i>
+      </button>
+      <button class="button-arrow right-button" (click)="scrollCourses(1)" *ngIf="showRightCourses">
+        <i class="fas fa-greater-than"></i>
+      </button>
+      <div class="content-reservation" #resCourses>
+        <app-reservation-container *ngIf="showReservations[0]" [count]="0" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[1]" [count]="1" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[2]" [count]="2" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[3]" [count]="3" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[4]" [count]="4" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[5]" [count]="5" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[6]" [count]="6" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[7]" [count]="7" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[8]" [count]="8" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[9]" [count]="9" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[10]" [count]="10" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+        <app-reservation-container *ngIf="showReservations[11]" [count]="11" (showReservation)="ChangeReservationView($event)"></app-reservation-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="videos-section">
+  <h1 style="color:#0e679b;">Una amplia seleccion de cursos</h1>
+  <p>Elija entre más de 200 cursos en línea con nuevas incorporaciones publicadas cada mes</p>
+  <button class="left-navigation button" (click)="scrollVideos(-1)" *ngIf="showLeftVideo">
+    <i class="fas fa-greater-than fa-flip-both"></i>
+  </button>
+  <button class="right-navigation button" (click)="scrollVideos(1)" *ngIf="showRightVideo">
+    <i class="fas fa-greater-than"></i>
+  </button>
+  <div class="videos-container" #videosContainer>
+    <div *ngFor="let course of courseData">
+      <app-course-box [course]="course"></app-course-box>
+    </div>
+  </div>
+</div>
+
+<div class="comments-section">
+  <h1 style="color:#0e679b;">Cómo los estudiantes como usted están logrando sus objetivos</h1>
+  <button class="left-navigation button" (click)="scrollComments(-1)" *ngIf="showLeftComment">
+    <i class="fas fa-greater-than fa-flip-both"></i>
+  </button>
+  <button class="right-navigation button" (click)="scrollComments(1)" *ngIf="showRightComment">
+    <i class="fas fa-greater-than"></i>
+  </button>
+  <div class="comments-container" #commentsContainer>
+    <div *ngFor="let comment of commentsData">
+      <app-favorite-comment [blogPost]="comment"></app-favorite-comment>
+    </div>
+  </div>
+</div>
+
+<div id="especialidades" class="categories-section">
+  <h1 style="color:#0e679b;">Categorias</h1>
+  <div class="categories-container">
+    <div class="box" *ngFor="let category of categories">
+      <div class="d-flex align-items-start justify-content-end  uploader" *ngIf="isLogin">
+        <div class="d-flex justify-content-center head-btns">
+          <i class="fas fa-trash-alt trash-icon" (click)="$event.stopPropagation(); $event.preventDefault(); openDeleteCategoryModal(category.id)" data-bs-toggle="modal" data-bs-target="#delete-category"></i>
+        </div>
+        <div class="head-btns">
+          <app-file-uploader [fileInfo]="fileInfo" [listSourceID]="category.id"></app-file-uploader>
+        </div>
+      </div>
+      <a [routerLink]="['/course-list/', category.id]" [state]="{ category: category.id }">
+        <img src="data:image/jpg;base64, {{category.imagePath}}" />
+
+        <!--<img *ngif="!category.imagePath" src="..\..\assets\cayudi.svg" />-->
+
+
+      </a>
+
+      <p>{{ category.name }}</p>
+    </div>
+    <button *ngIf="isLogin" class="box d-flex justify-content-center align-items-center" style="border: 1px solid rgba(28, 29, 31, 0.15);" data-bs-toggle="modal" data-bs-target="#create-category">
+      <i class="fas fa-plus" style="font-size: 50px; color: rgba(28, 29, 31, 0.36);"></i>
+    </button>
+  </div>
+</div>
+
+<div id="create-category" class="modal fade custom-backdrop">
+  <app-create-category></app-create-category>
+</div>
+
+<div id="delete-category" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bCloseCategory" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar la categoria? Se eliminara todos los cursos relacionados a la categoria, y se perdera toda la informacion almacenada sobre esta.</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="deleteCategory()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

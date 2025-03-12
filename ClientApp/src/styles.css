@@ -1,0 +1,124 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+@font-face {
+    font-family: 'Corbel Bold';
+    src: url(assets/Corbel_Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+  font-family: 'Corbel Bold', sans-serif;
+}
+
+a {
+  color: #0366d6;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+code {
+  color: #e01a76;
+}
+
+/* Establece una altura mínima para el contenedor principal */
+.content-wrapper {
+  margin-top: 72px;
+  min-height: 92.5vh; /* 100% del alto de la ventana */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Asegura que el contenido principal ocupe todo el espacio disponible */
+main {
+  flex-grow: 1;
+  overflow-y: auto; /* Agrega scroll vertical si es necesario */
+}
+
+/* Footer fijo en la parte inferior cuando el contenido no llena la pantalla */
+app-footer {
+  flex-shrink: 0;
+}
+
+app-nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  background-color: #fff;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/*Scroll*/
+/* Cambiar el ancho y el color de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+/* Cambiar el fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  opacity:0.5;
+}
+
+/* Opcional: Cambiar el color al pasar el mouse sobre la barra de desplazamiento */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/*button whatsapp*/
+.btn-wsp {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  font-size: 35px;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+  z-index: 100;
+  transition: all 300ms ease;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+}
+  .btn-wsp:hover {
+    background: #20ba5a;
+  }
+
+input:focus{
+    outline:none;
+}
+textarea:focus {
+  outline: none;
+}
+select:focus {
+  outline: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.invalid {
+  border: 1px solid red !important;
+}

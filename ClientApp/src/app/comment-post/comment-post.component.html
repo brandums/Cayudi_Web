@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="d-flex gap-2 gap-md-4 gap-lg-4 gap-xl-4 gap-xxl-4">
+    <div>
+      <div class="user-circle">
+        <p *ngIf="!containsImage">{{userInitials}}</p>
+        <img *ngIf="containsImage" class="user-img" src="data:image/*;base64, {{user.profImage}}" />
+      </div>
+    </div>
+    <div class="user-content">
+      <div class="d-flex justify-content-between">
+        <p class="user-name" *ngIf="user">{{user.name}}</p>
+        <p class="d-flex justify-content-end date-comment">{{blogPost.creationDate | date: 'dd/MM/yy h:mm'}}</p>
+      </div>
+      <p class="text-comment">
+        {{blogPost.message}}
+      </p>
+
+      <div class="d-flex gap-1 gap-md-5 gap-lg-5 gap-xl-5 gap-xxl-5">
+        <button class="d-flex align-items-center gap-2" (click)="GiveLike()">
+          <p class="m-0" *ngIf="likes">{{likes}}</p>
+          <i *ngIf="!postLike" class="far fa-thumbs-up"></i>
+          <i *ngIf="postLike" class="fas fa-thumbs-up"></i>
+          <p class="m-0">Me gusta</p>
+        </button>
+
+        <button class="d-flex align-items-center gap-2" (click)="toggleReply()">
+          <i class="fas fa-reply"></i>
+          <p class="m-0">Responder</p>
+        </button>
+
+        <button class="d-flex align-items-center gap-2" *ngIf="blogPostAnswer" (click)="ActiveComments()">
+          <p class="m-0">{{blogPostAnswer.length}}</p>
+          <i class="far fa-comments"></i>
+          <p class="m-0" *ngIf="!SeeMore">Ver mas</p>
+          <p class="m-0" *ngIf="SeeMore">Ver menos</p>
+        </button>
+      </div>
+      <div class="d-flex gap-1 gap-md-4 gap-lg-4 gap-xl-4 gap-xxl-4 input-comment" *ngIf="isReplying">
+        <div class="user-circle-answer col-1">
+          <p *ngIf="!containsImage">{{userInitials}}</p>
+          <img *ngIf="containsImage" class="user-img" src="data:image/*;base64, {{user.profImage}}" />
+        </div>
+        <div class="flex-grow-1 d-flex input-container col-11">
+          <input *ngIf="isLogin" class="form-control form-control-lg w-100" type="text" [(ngModel)]="newBlogPostAnswer.Message" placeholder="Deja un comentario..." (keyup.enter)="SendComment()">
+          <input *ngIf="!isLogin" class="form-control form-control-lg w-100" type="text" placeholder="Inicia sesion para comentar.." data-bs-toggle="modal" data-bs-target="#login">
+          <button class="send-comment" (click)="SendComment()"><img src="../../assets/send.svg"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="SeeMore">
+  <div class="container-fluid col-11 offset-1" *ngFor="let answer of blogPostAnswer.slice().reverse()">
+    <app-answer [answer]="answer"></app-answer>
+  </div>
+</div>

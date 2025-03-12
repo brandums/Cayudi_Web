@@ -1,0 +1,70 @@
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.file-text {
+  color: #1c86b9;
+  text-align: center
+}
+
+.pdf-file {
+  width: 150px;
+  margin: 10px;
+}
+
+.pdf-file-uploader {
+  display: flex;
+  width: 150px;
+  margin: 10px;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.modal-header {
+  background: #1c86b9;
+}
+
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+  .modal-header button {
+    box-shadow: none;
+  }
+
+.pdf-modal {
+  width: 80%;
+  display: flex;
+  position: center;
+  margin-left: 10%
+}
+
+.create-button {
+  display: inline-flex;
+  min-width: 80px;
+  padding: 6px 18px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #57baa3;
+  background: #57baa3;
+  white-space: nowrap;
+  margin: 0;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+
+.trash-icon{
+  margin-right: 8px;
+  margin-top: 8px;
+  cursor:pointer;
+  color: gray;
+}

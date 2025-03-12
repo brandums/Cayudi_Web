@@ -1,0 +1,73 @@
+a{
+    cursor:pointer;
+}
+
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  gap: 20px;
+  min-height: 70vh;
+}
+
+.create-button {
+  display: inline-flex;
+  min-width: 80px;
+  padding: 10px 14px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #57baa3;
+  background: #57baa3;
+  white-space: nowrap;
+  margin: 0;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+
+.results {
+  color: #848282;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.dropdown button{
+    box-shadow:none;
+}
+.dropdown-menu a {
+  color: #848282;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.courses-content {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  flex-wrap: wrap;
+  gap: 45px;
+  margin-bottom:40px;
+}
+
+.pagination-content{
+    margin-top:auto;
+}
+
+.modal-header {
+  background: #1c86b9;
+  color: #FFF;
+}
+
+.modal-body {
+  min-height: auto;
+}
+
+  .modal-body button {
+    margin-right: 10px;
+  }

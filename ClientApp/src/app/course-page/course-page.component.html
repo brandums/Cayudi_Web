@@ -1,0 +1,98 @@
+<div class="container-fluid" (click)="handleClick()" *ngIf="course">
+  <div class="row col-12">
+    <div class="col-lg-9 left-content" id="leftContent">
+      <div class="container">
+        <div class="video-description col-12 d-flex">
+          <button *ngIf="user && user.roleID === 1" class="bChangeview" (click)="onNotifyParent()">Cambiar vista</button>
+          <p class="title" *ngIf="!isEditingTitle" (dblclick)="startEditing('tittle')">{{course.tittle}}</p>
+          <p class="text-content" *ngIf="!isEditingTitle && !course.tittle" (dblclick)="startEditing('tittle')">Titulo...</p>
+          <input class="form-control title-input" placeholder="Ingrese un titulo..." *ngIf="isEditingTitle" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Tittle')" (click)="handleEditClick($event)">
+          <p class="subtitle" *ngIf="!isEditingSubtitle" (dblclick)="startEditing('subtitle')">{{course.subtitle}}</p>
+          <p class="text-content" *ngIf="!isEditingSubtitle && !course.subtitle" (dblclick)="startEditing('subtitle')">Subtitulo...</p>
+          <input class="form-control subtitle-input" placeholder="Ingrese un subtitulo..." *ngIf="isEditingSubtitle" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Subtitle')" (click)="handleEditClick($event)">
+        </div>
+
+        <app-tabs [activeTab]="activeTab" [courseId] ="courseId" [userId] ="user.id"></app-tabs>
+
+        <div class="video-description col-12 d-flex">
+          <p class="title">Descripción del curso</p>
+          <p class="text-content" *ngIf="!isEditingDescription" (dblclick)="startEditing('description')">{{course.description}}</p>
+          <p class="text-content" *ngIf="!isEditingDescription && !course.description" (dblclick)="startEditing('description')">Descripcion...</p>
+          <textarea class="form-control" placeholder="Ingrese una descripcion..." *ngIf="isEditingDescription" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Description')" (click)="handleEditClick($event)"></textarea>
+        </div>
+
+        <div id="comments-content" class="comments-content col-12">
+          <div class="row col-12">
+            <div class="col-6 d-flex flex-column gap-3">
+              <p class="title">Comentarios de los estudiantes</p>
+              <div class="d-flex gap-2">
+                <p class="stars">Valoracion del curso</p>
+                <i class="fas fa-star" style="color: #F69C08"></i>
+                <p class="stars">{{courseRate.rating}}</p>
+                <br>
+                <p class="stars"> ({{courseRate.totalVotes}} estudiantes calificaron el curso)</p>
+              </div>
+            </div>
+            <div *ngIf="userCourse" class="col-6 d-flex gap-2 align-items-center justify-content-end">
+              <p class="stars star m-0 text-center">Deja tu calificación: </p>
+              <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+                <i class="fas fa-star star" *ngIf="star <= userCourse.rating" (click)="updateRateCourse(star)"></i>
+                <i class="far fa-star star" *ngIf="star > userCourse.rating" (click)="updateRateCourse(star)"></i>
+              </ng-container>
+            </div>
+          </div>
+          
+          <p class="title">Reseñas</p>
+          <div class="d-flex gap-2 gap-md-4 gap-lg-4 gap-xl-4 gap-xxl-4 input-comment">
+            <div class="user-circle">
+              <p *ngIf="!containsImage">{{userInitials}}</p>
+              <img *ngIf="containsImage" class="user-img" src="data:image/*;base64, {{user.profImage}}"  />
+            </div>
+            <div class="flex-grow-1 d-flex input-container">
+              <input class="form-control form-control-lg w-100 form-control-comment" type="text" [(ngModel)]="newBlogPost.Message" placeholder="Deja un comentario..." (keyup.enter)="SendComment()">
+              <button class="send-comment" (click)="SendComment()"><img src="../../assets/send.svg"></button>
+            </div>
+          </div>
+
+          <div *ngIf="blogPost?.length">
+            <div *ngFor="let _blogPost of blogPost.slice().reverse()">
+              <app-comment-post [blogPost]="_blogPost"></app-comment-post>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 right-content">
+      <app-instructor-profile [trainerID]="course.trainerID"></app-instructor-profile>
+      <p class="title">Contenido del Curso</p>
+      <div class="d-flex flex-column gap-3 buttons-container">
+        <button #tab1 class="col-12 button-content" (click)="changeTab('tab1')" [disabled]="!tab1Enabled">Videos</button>
+        <button #tab2 class="col-12 button-content" (click)="changeTab('tab2')" [disabled]="!tab2Enabled">Documentos</button>
+        <button class="col-12 button-content" (click)="changeTab('tab3')">Certificaciones</button>
+        <button class="col-12 button-content" (click)="changeTab('tab4')">Pruebas finales</button>
+        <button class="col-12 comment-button" (click)="scrollToComments()" [disabled]="!tab4Enabled">Comentarios</button>
+        <button #tab4 class="col-12 finish-button" data-bs-toggle="modal" data-bs-target="#course-finish" *ngIf="user.roleID === 2 && tab4Visible">Finalizar curso</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="course-finish" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de finalizar el curso? Perdera el acceso a videos y documentos sobre este, y se habilitara las pruebas finales del curso.</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="UpdateFinishCourse()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

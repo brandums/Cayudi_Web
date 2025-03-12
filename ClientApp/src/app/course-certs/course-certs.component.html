@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="col justify-content-md-center">
+    <div *ngFor="let cert of certs; let $in = index">
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <img src="data:image/jpg;base64, {{cert.path}}" class="img-fluid rounded-start">
+          </div>
+
+          <div class="col-md-7">
+            <div class="card-body">
+              <p> <strong class="subtitle">{{cert.tittle}}  </strong></p>
+              <p> {{cert.certDescription}} </p>
+              <strong class="card-title strong">Requerimientos:</strong>
+              <div *ngFor="let ss of cert.splitedReq; let $ind=index">
+                <ul>
+                  <li>{{ss}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isAdmin" class="d-flex align-items-start justify-content-end  uploader">
+            <div class="d-flex justify-content-end head-btns">
+              <i class="fas fa-trash-alt trash-icon" data-bs-toggle="modal" data-bs-target="#delete-cert" (click)="selectedCert(cert.id)"></i>
+            </div>
+            <div class="head-btns file-uploader">
+              <app-file-uploader [fileInfo]="fileInfo_images" [listSourceID]="cert.id"></app-file-uploader>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pdf-file-uploader d-flex justify-content-end">
+      <button *ngIf="isAdmin" class="create-button" data-bs-toggle="modal" data-bs-target="#create-cert">Crear certificado</button>
+    </div>
+  </div>
+</div>
+
+<div id="create-cert" class="modal fade custom-backdrop">
+  <app-create-course-cert [courseID]="courseID"></app-create-course-cert>
+</div>
+
+<div id="delete-cert" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar el certificado?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="deleteCert()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

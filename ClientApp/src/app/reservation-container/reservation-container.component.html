@@ -1,0 +1,42 @@
+<div  class="card" *ngIf="coursesToDisplay.length > 0" [ngStyle]="getStyle()">
+  <p class="date">{{ fullMonthNames[date.getMonth()] }}</p>
+
+  <div *ngFor="let course of coursesToDisplay.slice(0,10)">
+    <div class="row content">
+      <div class="column col-xl-12 col-md-12">
+        <div class="col-8 justify-content-start align-items-start">
+          <p class="category m-0">{{ course.courseCategory }}</p>
+          <p class="title m-0"> {{ course.tittle }} </p>
+        </div>
+      </div>
+      <div class="col-xl-12 col-md-12 align-self-center d-flex justify-content-center">
+        <button *ngIf="isLogin && !course.bought" [routerLink]="['/sale-page', course.id]">RESERVAR</button>
+        <button *ngIf="!isLogin" data-bs-toggle="modal" data-bs-target="#login">RESERVAR</button>
+        <button *ngIf="isLogin && course.bought">
+          RESERVADO
+          <span style="margin-left: 8px;">
+            <i class="fas fa-check" style="color: #FFF"></i>
+          </span>
+        </button>
+      </div>
+
+      <div class="row d-flex gap-4" style="margin-top:20px">
+        <div>
+          <p class="description-text" style="margin:0%;">Numero de videos:     12</p>
+          <p class="description-text" style="margin:0%;">Tiempo de estudio:    134 Hrs</p>
+          <p class="description-text" style="margin:0%;">Certificado abalado:  si</p>
+        </div>
+        <div class="row">
+          <div class="col-1 d-flex align-items-center">
+            <div class="calendar-content">
+              <img src="../../assets/calendar.svg" />
+            </div>
+          </div>
+          <div class="col-10 d-flex flex-column justify-content-center" style="padding-left:25px">
+            <p class="start-course m-0">Inicio {{ course.day }} de {{ fullMonthNames[date.getMonth()] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row col-12 content">
+    <div class="col-lg-12 col-xl-10" style="padding: 0">
+      <div class="embed-responsive-16by9">
+        <video #media width="1000px" height="600px" [src]="currentVideo.src" id="singleVideo" autoplay preload="auto" controls controlsList="nodownload" oncontextmenu="return false;" poster="../assets/cayudi.svg">
+        </video>
+      </div>
+    </div>
+    <div class="col-lg-12 col-xl-2 mt-lg-10" style="padding: 0">
+      <div class="buttons-group">
+        <div class="d-flex flex-column d-grid gap-1 overflow-auto video-buttons">
+          <div class="col-12" *ngFor="let vdo of videoItems; let $index = index">
+            <div class="row g-0">
+              <div class="option-video">
+                <button class="btn btn-light vPlayB" (click)="startPlaylistVdo(vdo, $index)" data-toggle="tooltip" data-placement="top" title="{{ vdo.name }}">
+                  <img class="img-card" src="../../assets/play-svgrepo-com.svg" alt="Card image cap">
+                  <p class="video-text text-truncate">{{ vdo.name }}</p>
+                </button>
+                <button *ngIf="user && user.roleID === 1" type="button" class="btn btn-danger" (click)="openConfModal($index)" data-bs-toggle="modal" data-bs-target="#confirm-modal">
+                  <img src="../../assets/trash.svg" style="width:100%; height:auto; min-width:16px;">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="load-video">
+          <app-file-uploader *ngIf="user && user.roleID === 1" [fileInfo]="fileInfo"></app-file-uploader>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div id="confirm-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar el archivo: {{deletedFile}}?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="delete()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+  <button  class="btn" (click)="fileInput.click()">
+    <label for="file"></label>
+    <input type="file" id="fileUp" #fileInput style="display: none;" (change)="captureFile($event)" accept="{{fileInfo.imputType}}" />
+      <img  id="addFile" [hidden]="waiting" src="../../assets/plus.svg" />
+      <img  id="loadingFile" [hidden]="loading" src="../../assets/l3g.gif" />
+      <div  [hidden]="loading" class="progress form-group centered" *ngIf="progress > 0">
+        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+        </div>
+      </div>
+  </button>
+

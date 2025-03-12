@@ -1,0 +1,54 @@
+img { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.file-text {
+  color: #1c86b9;
+  text-align: center;
+  font-size:smaller;
+}
+
+.pdf-file {
+  width: 150px;
+  margin: 10px;
+}
+.pdf-file-uploader {
+  display: flex;
+  height: 95px;
+  width: 150px;
+  min-width: 150px;
+  margin: 10px;
+}
+
+
+.modal-header {
+  background: #1c86b9;
+  color: #FFF;
+}
+
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+  .modal-header button {
+    box-shadow: none;
+  }
+
+.pdf-modal {
+  width: 80%;
+  display: flex;
+  position:center;
+  margin-left:10%
+}
+
+
+.modal-body {
+  min-height: auto;
+}
+
+  .modal-body button {
+    margin-right: 10px;
+  }
+

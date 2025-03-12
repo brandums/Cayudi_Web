@@ -1,0 +1,33 @@
+<div class="card" style="width: 18rem;" (click)="handleClick()">
+  <img src="data:image/jpg;base64, {{course.imagePath}}"  class="card-img-top">
+  <div class="card-body">
+    <div class="d-flex align-items-center justify-content-between text-center">
+      <p class="card-title m-0 price" *ngIf="!isEditingPrice" (dblclick)="startEditing('price')">{{course.price}} $</p>
+      <p class="card-title m-0 price" *ngIf="!isEditingPrice && !course.price" (dblclick)="startEditing('price')">Agregar precio</p>
+      <input class="form-control price-input" placeholder="Ingrese precio..." *ngIf="isEditingPrice" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Price')" (click)="handleEditClick($event)">
+      <img *ngIf="!user" src="../../assets/add-shop-kart.svg" style="width:35px; cursor:pointer;" />
+      <img *ngIf="!isFavorite && user" src="../../assets/add-shop-kart.svg" (click)="GiveFavorite()" style="width:35px; cursor:pointer;" />
+      <img *ngIf="isFavorite && user" src="../../assets/check-shop-kart.svg" (click)="GiveFavorite()" style="width: 35px; cursor: pointer;" />
+    </div>
+    <button *ngIf="!user" class="button-buy col-12" type="button" data-bs-toggle="modal" data-bs-target="#login">Comprar ahora</button>
+    <button *ngIf="user && user.roleID != 1 && !isBought" class="button-buy col-12" type="button" [routerLink]="['/sale-page', course.id]">Comprar ahora</button>
+    <button *ngIf="user && user.roleID != 1 && isBought" class="button-buy col-12" type="button">En Revision</button>
+    <button *ngIf="user && user.roleID === 1" class="button-buy col-12" type="button" (click)="updateParent()">Ver Curso</button>
+    <p class="card-text duration"> {{ course.durationTime }} días de duración</p>
+    <p class="card-text subtitle">This course includes:</p>
+
+    <div class="d-flex gap-3 align-items-center text-center specification">
+      <img src="../../assets/file.svg" />
+      <p class="card-text m-0">{{ numberVideos }} videos</p>
+    </div>
+    <div class="d-flex gap-3 align-items-center text-center specification">
+      <img src="../../assets/mobile.svg" />
+      <p class="card-text m-0">Acceso en movil y Pc</p>
+    </div>
+    <div class="d-flex gap-3 align-items-center text-center specification">
+      <img src="../../assets/trophy.svg" />
+      <p class="card-text m-0">Certificado de finalización</p>
+    </div>
+  </div>
+</div>
+

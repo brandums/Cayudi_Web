@@ -1,0 +1,169 @@
+<div class="container-fluid" (click)="handleClick()" style="padding:0;">
+  <div class="container-fluid container1">
+    <div class="container block1">
+      <div class="row col-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8" style="margin:0;">
+        <p *ngIf="category" class="category">Categoria > {{category.name}} </p>
+        <p class="title" *ngIf="!isEditingTitle" (dblclick)="startEditing('tittle')">{{course.tittle}}</p>
+        <p class="title" *ngIf="!isEditingTitle && !course.tittle" (dblclick)="startEditing('tittle')">Titulo...</p>
+        <input class="form-control title-input" placeholder="Ingrese un titulo..." *ngIf="isEditingTitle" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Tittle')" (click)="handleEditClick($event)">
+        <p class="subtitle" *ngIf="!isEditingSubtitle" (dblclick)="startEditing('subtitle')">{{course.subtitle}}</p>
+        <p class="subtitle" *ngIf="!isEditingSubtitle && !course.subtitle" (dblclick)="startEditing('subtitle')">Subtitulo...</p>
+        <input class="form-control subtitle-input" placeholder="Ingrese un subtitulo..." *ngIf="isEditingSubtitle" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Subtitle')" (click)="handleEditClick($event)">
+        <div class="d-flex gap-3 align-items-center text-center">
+          <i class="fas fa-star"></i>
+          <p class="stars">{{courseRate.rating}}</p>
+          <p class="stars">Valoración del curso</p>
+          <p class="stars">({{courseRate.totalVotes}} estudiantes calificaron el curso)</p>
+        </div>
+        <div class="d-flex gap-3 align-items-center text-center date-content">
+          <i class="fas fa-exclamation-circle" style="color: #ffffff;"></i>
+          <p class="date m-0">Curso publicado el {{ course.startDate | date: 'dd/MM/yyyy' }}</p>
+        </div>
+      </div>
+      <app-course-card [course]="course"
+                       [user]="user"
+                       (notifyParent)="onNotifyParent()"></app-course-card>
+    </div>
+  </div>
+
+  <div class="container-fluid container1">
+    <div class="d-flex align-items-end  uploader">
+      <div class="head-btns">
+        <app-file-uploader [fileInfo]="fileInfo" [listSourceID]="category?.id"></app-file-uploader>
+      </div>
+    </div>
+    <img src="data:image/jpg;base64, {{course.bannerPath}}"/>
+
+
+  </div>
+
+  <div class="container block2">
+    <div class="row" style="margin:0">
+      <div class="col-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8 content">
+        <div class="row">
+          <p class="subtitle-block2">Lo que aprenderás</p>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">Ejercitar la lógica de programación</p>
+            </div>
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">Aprender programación desde cero</p>
+            </div>
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">
+                Conocer y aprender el lenguaje de
+                programación Python
+              </p>
+            </div>
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">
+                Mejorar las habilidades de programación,
+                mejorar procesos y fácilitar la comprensión
+                de código
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">
+                Comprender cómo la vida cotidiana puede
+                ser fácilitada o simulada con código
+              </p>
+            </div>
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">
+                Usar Visual Studio Code como Editor de
+                Código
+              </p>
+            </div>
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p class="m-0">
+                Ser un programador desde cero, sin
+                conocimiento en otro lenguaje o con algo
+                previo
+              </p>
+            </div>
+            <div class="d-flex align-items-start points">
+              <div class="align-self-start me-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#57baa3" class="bi bi-check-lg" viewBox="0 0 16 16">
+                  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                </svg>
+              </div>
+              <p>
+                Preparar un entorno dónde programar en
+                Python
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="user && user.roleID === 1" class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 column2">
+        <button [routerLink]="['/user-list']" [queryParams]="{ courseID: course?.id }"><p>Lista de Estudiantes</p></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container block3">
+    <div class="row col-8">
+      <p class="description-title">Descripción</p>
+      <p class="text-content" *ngIf="!isEditingDescription" (dblclick)="startEditing('description')">{{course.description}}</p>
+      <p class="text-content" *ngIf="!isEditingDescription && !course.description" (dblclick)="startEditing('description')">Descripcion...</p>
+      <textarea class="form-control" placeholder="Ingrese una descripcion..." *ngIf="isEditingDescription" [(ngModel)]="editedText" (keyup.enter)="saveChanges('/Description')" (click)="handleEditClick($event)"></textarea>
+    </div>
+  </div>
+
+  <div class="container cert-container">
+    <div class="row col-8">
+      <p class="description-title">Certificados</p>
+      <app-course-certs [courseID]="course?.id" [isAdmin]="user.roleId === 1"></app-course-certs>
+    </div>
+  </div>
+
+  <div class="container instructor-container">
+    <div class="row col-8">
+      <app-instructor-profile [trainerID]="trainerID"></app-instructor-profile>
+    </div>
+  </div>
+</div>
+
+<!--<div id="user-list" class="modal fade">
+  <app-user-list [courseID]="course.id"></app-user-list>
+</div>-->

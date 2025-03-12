@@ -1,0 +1,85 @@
+.content {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: auto;
+}
+  .content p {
+    color: #2D2F31;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29.6px;
+  }
+    .content p::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+.subtitle {
+  color: #2D2F31;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+
+.trainer-name {
+  color: #1c86b9;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22.8px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.career {
+  color: #6A6F73;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.4px;
+  margin: 0;
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+.image-content {
+  width: 120px;
+  height: 120px;
+  float: left;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+    .content p {
+      font-size: 11px;
+    }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .trainer-name {
+    margin-top: -10px;
+    font-size: 16px;
+  }
+
+  .career {
+    font-size: 13px;
+  }
+
+  .image-content {
+    width: 90px;
+    height: 90px;
+    float: left;
+    margin-right: 12px;
+  }
+}

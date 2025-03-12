@@ -1,0 +1,16 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear un nuevo test</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form (submit)="createCourseTest()">
+        <input class="input-title" placeholder="Nombre del test" type="text" id="Name" name="Name" [(ngModel)]="courseTest.name" required>
+        <input class="input-title" placeholder="Url del Test google-form" type="text" id="Path" name="Path" [(ngModel)]="courseTest.path" required>
+
+        <button class="create-button" type="submit" data-bs-dismiss="modal">Crear Test</button>
+      </form>
+    </div>
+  </div>
+</div>

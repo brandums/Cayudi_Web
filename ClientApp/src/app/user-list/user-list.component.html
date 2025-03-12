@@ -1,0 +1,93 @@
+<div class="container">
+  <h1>Lista de estudiantes</h1>
+  <div class="row">
+    <div class="col-6 column1">
+      <p class="title-list">Modalidad virtual</p>
+      <div *ngFor="let userCourse of usersOnline">
+        <div *ngIf="userCourse" class="d-flex justify-content-between">
+          <p class="user-name">{{ userCourse.user.name }}</p>
+          <button class="on" *ngIf="!userCourse.isOppened" (click)="openConfirmationModal(userCourse)" data-bs-toggle="modal" data-bs-target="#active-course">Activar</button>
+          <button class="off" *ngIf="userCourse.isOppened" (click)="openConfirmationModal(userCourse)" data-bs-toggle="modal" data-bs-target="#desactive-course">Desactivar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 column2">
+      <p class="title-list">Modalidad Presencial</p>
+      <div *ngFor="let userCourse of usersPresential">
+        <div *ngIf="userCourse" class="d-flex justify-content-between">
+          <p class="user-name">{{ userCourse.user.name }}</p>
+          <button class="on" *ngIf="!userCourse.isOppened" (click)="openConfirmationModal(userCourse)" data-bs-toggle="modal" data-bs-target="#active-course">Activar</button>
+          <button class="off" *ngIf="userCourse.isOppened" (click)="openConfirmationModal(userCourse)" data-bs-toggle="modal" data-bs-target="#desactive-course">Desactivar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="add-button-container">
+    <button (click)="getUsers()" data-bs-toggle="modal" data-bs-target="#user-list-modal">Agregar Estudiante</button>
+  </div>
+</div>
+
+<div id="active-course" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de Activar el curso?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="ToggleOnCourse(selectedUserCourse)" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="desactive-course" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de Desactivar el curso?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="ToggleOnCourse(selectedUserCourse)" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="user-list-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar estudiante</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="dropdown">
+          <input type="text" autocomplete="off" class="form-control dropdown-toggle" id="userInput" data-bs-toggle="dropdown" aria-expanded="false" [(ngModel)]="searchTerm" (input)="filterUsers()" placeholder="Buscar usuario">
+          <ul class="dropdown-menu" aria-labelledby="userInput">
+            <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+              <a class="dropdown-item">{{ user.name }}</a>
+            </li>
+          </ul>
+        </div>
+
+        <select class="form-control" name="Modalidad" [(ngModel)]="isOnline" required>
+          <option value="" disabled selected>Selecciona la modalidad</option>
+          <option [value]="true">Online</option>
+          <option [value]="false">Presencial</option>
+        </select>
+
+        <button class="btn btn-primary" (click)="AddUserCourse()" data-bs-dismiss="modal">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>

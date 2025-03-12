@@ -1,0 +1,18 @@
+<a [routerLink]="['/course', course.id, course.tittle]">
+  <div class="container">
+    <div class="image-video">
+      <img src="../../assets/ecografia-mamaria.webp" />
+    </div>
+    <div class="content">
+      <p class="title"> {{ course.tittle }} </p>
+
+      <p class="user-name"> {{ trainer }} </p>
+
+      <!--<div class="punctuation">
+        <p> {{ punctuation }} </p>
+        <i class="fas fa-star"></i>
+      </div>-->
+    <p class="price"><span class="price-text">Precio:</span> <span class="dolar"> $</span> {{ course.price }}</p>
+    </div>
+  </div>
+</a>

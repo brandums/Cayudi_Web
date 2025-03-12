@@ -1,0 +1,63 @@
+<div class="container d-flex flex-column">
+  <div *ngIf="isAdmin" class="d-flex justify-content-end">
+    <button class="create-button" data-bs-toggle="modal" data-bs-target="#create-course">Crear nuevo curso</button>
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center" style="margin-bottom:25px">
+    <div *ngIf="visibilityCategory" class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Categorias
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let category of categories">
+          <a class="dropdown-item" (click)="filterCoursesByCategory(category.id)">{{ category.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <p class="results m-0">{{ courses.length }} resultados</p>
+  </div>
+
+  <div id="create-course" class="modal fade custom-backdrop">
+    <app-create-course></app-create-course>
+  </div>
+
+  <div class="courses-content">
+    <div *ngFor="let course of pagedCourses">
+      <app-course-sale [course]="course" [user]="user" (courseToDelete)="CourseToDelete($event)"></app-course-sale>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center pagination-content">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" (click)="onPageChange(currentPage - 1)">Anterior</a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+          <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === pages.length">
+          <a class="page-link" (click)="onPageChange(currentPage + 1)">Siguiente</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div id="delete-course" class="modal fade" #deleteCourseModal>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar el curso: {{courseToDeleteTittle}}? Se eliminará todos los datos relacionados al curso, y se perderá toda la información almacenada sobre este.</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="confirmDeleteCourse()" data-bs-dismiss="modal">Aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="d-flex gap-2 gap-md-4 gap-lg-4 gap-xl-4 gap-xxl-4">
+  <div>
+    <div class="user-circle">
+      <p *ngIf="!containsImage">{{userInitials}}</p>
+      <img *ngIf="containsImage" class="user-img" src="data:image/*;base64, {{user.profImage}}" />
+    </div>
+  </div>
+  <div class="user-content">
+    <div class="d-flex justify-content-between">
+      <p class="user-name" *ngIf="user">{{user.name}}</p>
+      <p class="d-flex justify-content-end date-comment">{{answer.creationDate | date: 'dd/MM/yy h:mm'}}</p>
+    </div>
+    <p class="text-comment">
+      {{answer.message}}
+    </p>
+
+    <div class="d-flex gap-5">
+      <button class="d-flex align-items-center gap-2" (click)="GiveLike()">
+        <p class="m-0" *ngIf="likes">{{likes}}</p>
+        <i *ngIf="!postLike" class="far fa-thumbs-up"></i>
+        <i *ngIf="postLike" class="fas fa-thumbs-up"></i>
+        <p class="m-0">Me gusta</p>
+      </button>
+    </div>
+  </div>
+</div>

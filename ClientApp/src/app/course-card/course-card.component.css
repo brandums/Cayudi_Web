@@ -1,0 +1,73 @@
+.card {
+  border-radius: 0;
+}
+
+  .card img {
+    border-radius: 0;
+  }
+
+.fa-bookmark {
+  color: #1d9cd1;
+  font-size: 32px;
+}
+
+.button-buy {
+  margin: 20px 0 10px 0;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #0e679b;
+  background: #0e679b;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+}
+
+.price, .price-input {
+  color: #2D2F31;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.2px;
+}
+.price-input{
+    width: 70%;
+}
+
+.duration {
+  color: #2D2F31;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.8px;
+}
+
+.subtitle {
+  color: #2D2F31;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19.2px;
+  letter-spacing: -0.2px;
+}
+
+.specification {
+  margin-bottom: 10px;
+}
+
+  .specification p {
+    color: #2D2F31;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.6px;
+  }
+
+.card-img-top {
+  width:100%;
+  height:300px;
+}

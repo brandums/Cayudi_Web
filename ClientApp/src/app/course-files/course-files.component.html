@@ -1,0 +1,59 @@
+
+<div class="container-fluid">
+  <div class="card-group">
+    <div *ngFor="let file of files; let $i = index">
+      <div class="card pdf-file" (click)="openModal($i)"
+           data-toggle="tooltip" data-placement="top" title="{{file.tittle}}">
+        <img class="card-img-top" src="../../assets/PDFRE.svg">
+        <p class="card-text file-text text-truncate">{{file.tittle}}</p>
+      </div>
+      <div class="d-flex justify-content-center" *ngIf="user.roleID == 1">
+
+        <div class="form-check form-switch" (click)="switchState($i)"
+             data-toggle="tooltip" data-placement="top" title="Solo lectura">
+          <input class="form-check-input" [(ngModel)]="file.readOnly" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="openConfModal($i)"  data-bs-toggle="modal" data-bs-target="#confirm-modal">
+          <img src="src=../../assets/trash.svg" style="width:auto; height:auto ">
+        </button>
+      </div>
+    </div>
+    <div class="pdf-file-uploader">
+      <app-file-uploader class="col-6 col-xl-12 col-lg-4 col-md-5" *ngIf="user && user.roleID === 1" [fileInfo]="fileInfo"></app-file-uploader>
+    </div>
+  </div>
+</div>
+
+<div class="modal modal-dialog-centered modal-dialog-scrollable pdf-modal" tabindex="-1"
+     role="dialog"
+     [ngStyle]="{'display':displayStyle}">
+
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Archivo PDF</h5>
+      <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <iframe type="application/pdf" width="100%" height="800px" #modalPDF></iframe>
+     </div>
+  </div>
+</div>
+
+<div id="confirm-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar el archivo: {{deletedFile}}?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="delete()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

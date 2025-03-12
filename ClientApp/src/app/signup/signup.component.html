@@ -1,0 +1,69 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Regístrate y comienza a aprender</h5>
+      <button type="button" class="btn-close close-signup" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="signupForm" class="mt-3">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+          <input formControlName="name" class="form-control" aria-describedby="emailHelp">
+          <div *ngIf="signupForm.get('name')?.hasError('required') && formSubmitted" class="text-danger">
+            El nombre es requerido.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+          <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp">
+          <div *ngIf="signupForm.get('email')?.hasError('required') && formSubmitted" class="text-danger">
+            El correo electrónico es requerido.
+          </div>
+          <div *ngIf="signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched" class="text-danger">
+            Correo electrónico no válido.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+          <input formControlName="password" [type]="showPassword2 ? 'text' : 'password'" class="form-control">
+          <div *ngIf="signupForm.get('password')?.hasError('required') && formSubmitted" class="text-danger">
+            La contraseña es requerida.
+          </div>
+          <div *ngIf="signupForm.get('password')?.hasError('minlength') && signupForm.get('password')?.touched" class="text-danger">
+            La contraseña debe tener al menos 8 caracteres.
+          </div>
+          <div *ngIf="signupForm.get('password')?.hasError('pattern') && signupForm.get('password')?.touched && signupForm.get('password')?.value.length >= 8" class="text-danger">
+            La contraseña debe ser mas segura.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Repite la contraseña</label>
+          <input formControlName="confirmPassword" [type]="showPassword2 ? 'text' : 'password'" class="form-control">
+          <div *ngIf="signupForm.get('confirmPassword')?.hasError('required') && formSubmitted" class="text-danger">
+            La confirmación de contraseña es requerida.
+          </div>
+          <div *ngIf="signupForm.get('confirmPassword')?.value && signupForm.hasError('passwordMismatch') && signupForm.get('confirmPassword')?.touched" class="text-danger">
+            Las contraseñas no coinciden.
+          </div>
+        </div>
+
+
+        <div class="mb-3 form-check">
+          <input (change)="togglePasswordVisibility()" type="checkbox" class="form-check-input" id="showPassword2">
+          <label class="form-check-label" for="showPassword2">Mostrar contraseña</label>
+        </div>
+
+        <div class="error-messages">
+          <p *ngFor="let message of errorMessages" class="error-message">{{ message }}</p>
+        </div>
+        <button (click)="register(signupForm)" class="btn btn-primary col-12 login" [disabled]="signupForm.invalid || isLoading">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span *ngIf="!isLoading">Regístrate</span>
+        </button>
+      </form>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <p>¿Ya tienes una cuenta? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#login">Inicia sesión</a></p>
+    </div>
+  </div>
+</div>

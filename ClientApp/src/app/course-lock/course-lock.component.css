@@ -1,0 +1,317 @@
+.container1 {
+  padding:0;
+  min-height: 100px;
+  
+  background: #2D2F31;
+}
+  .container1 img {
+    width: 100%;
+    max-height: 600px;
+  }
+
+.block1 {
+  position: relative;
+  padding:40px 0 30px 0;
+}
+
+app-course-card {
+  position: absolute;
+  top: 40px;
+  right: 0;
+}
+
+.category {
+  color: #57baa3;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+.title {
+  color: #FFF;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38.4px;
+  letter-spacing: -0.2px;
+  margin:0;
+}
+.title-input {
+  background: transparent;
+  color: #FFF;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+.title-input::placeholder{
+    color: #FFF;
+}
+
+.subtitle {
+  color: #FFF;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+  opacity:0.8;
+}
+.subtitle-input {
+  background: transparent;
+  color: #FFF;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+.subtitle-input::placeholder{
+    color: #FFF;
+    opacity: 0.8;
+}
+
+
+.description-title {
+  color: #2D2F31;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+textarea {
+  color: #2D2F31;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29.6px;
+}
+
+.fa-star {
+  color: #F69C08;
+  font-size: 14px;
+}
+.stars {
+  color: #F69C08;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+  margin:0px;
+}
+
+.date-content{
+  margin-top:7px;
+}
+.date {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.6px;
+}
+
+.block2 .content {
+  margin: 35px 0px;
+  border: 1px solid #D1D7DC;
+  padding: 25px;
+}
+.subtitle-block2 {
+  color: #2D2F31;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+.points{
+    margin-bottom:14px;
+}
+.column2{
+    display:flex;
+    justify-content:center;
+    margin-top:35px;
+}
+
+.block3 {
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+.block3 .subtitle {
+  color: #2D2F31;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+  .block3 .text-content {
+    color: #2D2F31;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29.6px;
+  }
+
+.instructor-container{
+    margin-bottom:40px;
+}
+
+button {
+  display: inline-flex;
+  min-width: 80px;
+  height:36px;
+  padding: 12px 17px;
+  justify-content: center;
+  align-items: center;
+  background: #0e679b;
+  border: 1px solid #0e679b;
+}
+  button p {
+    margin: 0;
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: -0.2px;
+  }
+
+
+@media only screen and (max-width: 768px) {
+  .block1 {
+    position:revert;
+    padding: 20px 0 30px 0;
+  }
+
+  app-course-card {
+    position: revert;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    margin: 0;
+  }
+
+  .category {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .title-input {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .subtitle-input {
+    font-size: 13px;
+  }
+
+  .description-title {
+    font-size: 20px;
+  }
+
+  textarea {
+    font-size: 12px;
+  }
+
+  .fa-star {
+    font-size: 12px;
+  }
+
+  .stars {
+    font-size: 12px;
+  }
+
+  .date-content {
+    margin-top: 7px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  .block2 .content {
+    margin: 35px 0px;
+    border: 1px solid #D1D7DC;
+    padding: 25px;
+  }
+
+  .subtitle-block2 {
+    font-size: 20px;
+  }
+
+  .points {
+    margin-bottom: 14px;
+  }
+
+  .column2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .block3 {
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+
+    .block3 .subtitle {
+      font-size: 20px;
+    }
+
+    .block3 .text-content {
+      margin-top: -10px;
+      font-size: 12px;
+    }
+
+  .instructor-container {
+    margin-bottom: 15px;
+  }
+
+  button {
+    height: 36px;
+    padding: 12px 17px;
+    justify-content: center;
+    align-items: center;
+    background: #0e679b;
+    border: 1px solid #0e679b;
+  }
+
+    button p {
+      font-size: 14px;
+    }
+}
+
+.head-btns {
+  background-color: transparent;
+  height: 100%;
+  width: 12%;
+  min-width: 40px;
+}
+
+.uploader {
+  background-color: transparent;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  min-width: 50px;
+  width: 100%;
+  color: transparent;
+  margin-top: 5px;
+}

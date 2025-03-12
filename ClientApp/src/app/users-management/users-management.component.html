@@ -1,0 +1,47 @@
+<div class="accordion" id="userAccordion">
+  <ng-container *ngFor="let user of users">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" (click)="loadUserCourses(user.id)">
+          <div class="row col-12">
+            <div class="col-3"><strong>Nombre: </strong><a [routerLink]="['/perfil', user.name]" [state]="{ userId: user.id }">{{ user.name }}</a></div>
+            <div class="col-3"><strong>Email: </strong>{{ user.email }}</div>
+            <div class="col-3"><strong>Telefono: </strong>{{ user.phoneNumber }}</div>
+            <div class="col-3 text-center verified" *ngIf="user.isVerified">Verificado</div>
+          </div>
+        </button>
+      </h2>
+      <div [id]="'userCollapse' + user.id" class="accordion-collapse collapse" [ngClass]="{ 'show': openedAccordionId === user.id }" aria-labelledby="headingOne" data-bs-parent="#userAccordion">
+        <div class="accordion-body">
+          <div class="row col-12">
+            <h5 class="col-6">Cursos del estudiante:</h5>
+            <p class="col-6 text-end">cursos en total: {{userCourses.length}}</p>
+          </div>
+
+          <div class="accordion-body">
+            <div class="row col-12">
+              <div class="col-2 text-center m-0"><strong>Título del Curso</strong></div>
+              <div class="col-2 text-center m-0"><strong>Fecha de Inicio</strong></div>
+              <div class="col-2 text-center m-0"><strong>Fecha de Finalización</strong></div>
+              <div class="col-2 text-center m-0"><strong>Modalidad</strong></div>
+              <div class="col-2 text-center m-0"><strong>Estado del Curso</strong></div>
+              <div class="col-2 text-center m-0"><strong>Estado del Estudiante</strong></div>
+            </div>
+            <ul class="row col-12">
+              <li *ngFor="let userCourse of userCourses">
+                <div class="row col-12">
+                  <div class="col-2 m-0"><a [routerLink]="['/course', userCourse.courseID, 'curso']">{{ userCourse.course.tittle }}</a></div>
+                  <div class="col-2 text-center m-0">{{ userCourse.startTime  | date: 'yyyy-MM-dd' }}</div>
+                  <div class="col-2 text-center m-0">{{ userCourse.endTime  | date: 'yyyy-MM-dd' }}</div>
+                  <div class="col-2 text-center m-0">{{ userCourse.isOnline ? 'Virtual' : 'Presencial' }}</div>
+                  <div class="col-2 text-center m-0">{{ userCourse.isOppened ? 'Abierto' : 'Bloqueado' }}</div>
+                  <div class="col-2 text-center m-0">{{ userCourse.isFinished ? 'Finalizado' : 'En Progreso' }}</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

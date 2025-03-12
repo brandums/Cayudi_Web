@@ -1,0 +1,377 @@
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  padding-left:20px;
+}
+
+.container{
+    padding:0;
+}
+
+.bChangeview {
+  margin-bottom: 10px;
+  width:fit-content;
+  display: inline-flex;
+  min-width: 80px;
+  padding: 11.59px 21.5px 11.41px 20.5px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1d9cd1;
+  background: transparent;
+  white-space: nowrap;
+  color: #1d9cd1;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+
+
+.video-description{
+  display:flex;
+  flex-direction:column;
+  padding-top:30px;
+  gap:5px;
+}
+.text-content {
+  color: #2D2F31;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29.6px;
+}
+
+textarea {
+  color: #2D2F31;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29.6px;
+}
+
+.comments-content {
+  border: 1px solid #D1D7DC;
+  padding: 25px;
+  margin-top:30px;
+  margin-bottom:30px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.title {
+  color: #0e679b;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+.title-input {
+  color: #2D2F31;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+}
+
+.subtitle {
+  color: black;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+  opacity: 0.5;
+}
+.subtitle-input {
+  color: black;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28.8px;
+  letter-spacing: -0.2px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.stars {
+  color: #F69C08;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+  margin: 0px;
+}
+.star{
+    font-size: 20px;
+}
+.fa-star {
+  color: #F69C08;
+  cursor:pointer;
+}
+
+.input-comment {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.user-circle {
+  overflow:hidden;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background: #57baa3;
+}
+
+  .user-circle p {
+    margin: 0;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: -0.2px;
+  }
+
+.input-container {
+  border: 1px solid #D1D7DC;
+  padding: 0 15px 0 10px;
+}
+.input-container input:focus{
+    box-shadow:none;
+}
+.form-control-comment {
+  border-radius: 0;
+  border: none;
+  color: #777;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+  .form-control-comment::placeholder {
+    color: #777;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16.8px;
+    letter-spacing: -0.2px;
+  }
+.send-comment{
+    border:none;
+    background:transparent;
+}
+.send-comment img{
+    width:30px; 
+}
+
+
+
+.left-content {
+  overflow-y: scroll;
+  max-height: calc(100vh - 80px);
+}
+  /* Oculta la barra de desplazamiento nativa */
+  .left-content::-webkit-scrollbar {
+    width: 0em;
+  }
+.right-content {
+  overflow-y: scroll;
+  max-height: calc(100vh - 80px);
+  padding: 30px 15px 30px 30px;
+  position: sticky;
+  top: 0;
+  border-left: 1px solid #D1D7DC;
+}
+  .right-content::-webkit-scrollbar {
+    width: 0em;
+  }
+
+
+
+.buttons-container{
+    margin-top:30px;
+}
+  .button-content {
+    display: inline-flex;
+    min-width: 80px;
+    padding: 11.59px 21.5px 11.41px 20.5px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1d9cd1;
+    background: transparent;
+    color: #1d9cd1;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: -0.2px;
+  }
+
+.comment-button {
+  display: inline-flex;
+  min-width: 80px;
+  padding: 11.59px 21.5px 11.41px 20.5px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #0e679b;
+  background: #0e679b;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+
+.finish-button {
+  display: inline-flex;
+  min-width: 80px;
+  padding: 11.59px 21.5px 11.41px 20.5px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #57baa3;
+  background: #57baa3;
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: -0.2px;
+}
+
+.user-img {
+  border-radius: 50%;
+  width: 105%;
+  height: 105%;
+  /*object-fit: contain;*/
+  background-size: cover;
+}
+
+.modal-header {
+  background: #1c86b9;
+  color: #FFF;
+}
+
+.modal-body {
+  min-height: auto;
+}
+
+  .modal-body button {
+    margin-right: 10px;
+  }
+
+@media only screen and (max-width: 992px){
+  .left-content {
+    overflow-y: hidden;
+    max-height: 100%;
+  }
+
+  .right-content {
+    overflow-y: hidden;
+    padding: 20px 10px;
+    border-left: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .bChangeview {
+    margin-bottom: 8px;
+    width: fit-content;
+    min-width: 60px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .video-description {
+    padding-top: 20px;
+    gap: 2px;
+  }
+
+  .text-content {
+    font-size: 12px;
+  }
+
+  .comments-content {
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .title-input {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .subtitle-input {
+    font-size: 13px;
+  }
+
+  .stars {
+    font-size: 16px;
+  }
+
+  .input-comment {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .user-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+    .user-circle p {
+      font-size: 12px;
+    }
+
+  .input-container {
+    padding: 0 7px 0 7px;
+  }
+
+
+  .form-control-comment {
+    font-size: 13px;
+  }
+
+    .form-control-comment::placeholder {
+      font-size: 13px;
+    }
+
+  .send-comment img {
+    width: 22px;
+  }
+
+
+  .buttons-container {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .button-content {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+
+  .comment-button {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,246 @@
+  .container-fluid {
+  background-image: url('../../assets/banner_medico_gris.png');
+  background-repeat: repeat;
+  background-size: 200px auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 38.6vw;
+  display:flex;
+  }
+
+  .container {
+  padding: 30px 50px;
+  background: #FFF;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  h2{
+    margin-bottom:35px;
+  }
+
+  .column2{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  /*.user-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height:50%;
+  }*/
+  .certification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .image-upload-container {
+  display: flex;
+  min-height: 200px;
+  min-width: 200px;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  transition: border 0.3s ease-in-out;
+  }
+
+  .image-upload-container:hover {
+    border: 2px dashed #57baa3;
+  }
+
+  .image-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  margin: 0;
+  cursor: pointer;
+  }
+  .selected-image {
+  max-width: 100%;
+  max-height: auto;
+  display: none;
+  }
+
+  /*img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-size: cover;
+  }*/
+
+  .upload-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  margin:10px;
+  /*overflow-y: scroll;*/
+  }
+
+  /*.image {
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 60%;
+  border: 2px dashed #ccc;
+  }*/
+
+  .image-lg {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 60%;
+  border: 2px dashed #ccc;
+  }
+    
+  strong {
+  color: #1c86b9;
+  }
+
+  .tittle {
+  color: #1c86b9;
+  text-align: center
+  }
+
+.pdf-file {
+  width: 85px;
+  height: 85px;
+  margin: 10px;
+  margin-bottom: 10px;
+  border: 2.5px solid #0e679b;
+}
+
+    .pdf-file img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover
+    }
+
+    .prof-tittle {
+      margin: 0%;
+    }
+
+.prof-data {
+  margin-bottom: 10px;
+}
+
+
+.user-prof-img {
+  width: 250px;
+  height: 250px;
+  border: 2.5px solid #0e679b;
+  background: #1fb2e4;
+}
+
+  .user-prof-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  }
+
+  .verified-section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  }
+  .ver-container {
+  width:auto;
+  margin-top:10px;
+  }
+
+  .ver-container p img {
+    width: 20px;
+    float: inline-start;
+    margin-block: 2px;
+    margin-left: 5px;
+  }
+
+  .ver-container p {
+    color: green;
+    display: block;
+  }
+
+  .n-ver-container {
+    width: auto;
+    margin-top: 10px;
+  }
+
+  .n-ver-container p img {
+    width: 20px;
+    float: inline-start;
+    margin-block: 2px;
+    margin-left: 5px;
+  }
+
+  .n-ver-container p {
+    color: red;
+    display: block;
+  }
+.img-container {
+  overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.modal-header {
+  background: #1c86b9;
+  color: #FFF;
+}
+
+  .modal-header h5 {
+    color: #FFF;
+  }
+
+  .modal-header button {
+    box-shadow: none;
+  }
+
+.pdf-modal {
+  width: 80%;
+  display: flex;
+  position: center;
+  margin-left: 10%
+}
+
+
+.modal-body {
+  min-height: auto;
+  justify-content: center;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .modal-body button {
+    margin-right: 10px;
+  }
+
+.loader {
+  width: 250px;
+  height:60px;
+  margin: 10px;
+  margin-bottom: 10px;
+  border: 2.5px solid #0e679b;
+}
+
+.ver-btn {
+  margin-bottom: 10px;
+
+}
+textarea {
+  height: 100px;
+  overflow:hidden;
+
+}
+

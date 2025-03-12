@@ -1,0 +1,17 @@
+<div class="container" *ngIf="blogPost && user && course">
+  <img src="../../assets/quotes.svg" />
+  <p>{{ blogPost.message }}</p>
+
+  <div class="user-content">
+    <div class="user-circle">
+      <p *ngIf="!containsImage">{{ userInitials }}</p>
+      <img *ngIf="containsImage" class="user-img" src="data:image/*;base64, {{user.profImage}}" />
+    </div>
+    <p>{{ user.name }}</p>
+  </div>
+
+  <div class="video-content">
+    <img src="../../assets/play.svg" />
+    <p>{{ course.tittle }}</p>
+  </div>
+</div>

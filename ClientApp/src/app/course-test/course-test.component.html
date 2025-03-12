@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="card-group">
+    <div *ngFor="let test of tests">
+      <div class="card pdf-file">
+        <div class="text-end">
+          <i class="fas fa-trash-alt trash-icon" data-bs-toggle="modal" data-bs-target="#delete-courseTest" (click)="selectedTest(test.id)"></i>
+        </div>
+        <a href="{{test.path}}">
+          <img class="card-img-top" src="../../assets/forms.png">
+        </a>
+        <p class="card-text file-text" title="{{test.name}}">{{test.name}}</p>
+      </div>
+    </div>
+    <div class="pdf-file-uploader">
+      <button *ngIf="isAdmin" class="create-button" data-bs-toggle="modal" data-bs-target="#create-test">Crear test</button>
+    </div>
+  </div>
+</div>
+
+
+<div id="create-test" class="modal fade custom-backdrop">
+  <app-create-course-test [courseID]="courseID"></app-create-course-test>
+</div>
+
+<div id="delete-courseTest" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmación</h5>
+        <button id="bClose" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Está seguro de eliminar el test?</p>
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="deleteCourseTest()" data-bs-dismiss="modal">aceptar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

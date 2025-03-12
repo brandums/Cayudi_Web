@@ -1,0 +1,95 @@
+.container{
+    margin-top: 30px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0e679b;
+}
+
+.title-list {
+  text-align: center;
+  font-weight: 600;
+  font-size: 19px;
+  color: #1c86b9;
+}
+.user-name{
+  font-weight: 400;
+  font-size:17px;
+  color: #000;
+}
+
+.column1 {
+  border-right: 1px solid #D1D7DC;
+  min-height: 400px;
+}
+
+.column1, .column2{
+    padding: 25px;
+}
+
+.on{
+  background: green;
+  border:none;
+  font-size:14px;
+  color:white;
+  padding:0px 8px;
+  height:24px;
+}
+
+.off {
+  background: red;
+  border: none;
+  font-size: 14px;
+  color: white;
+  padding: 0px 8px;
+  height: 24px;
+}
+
+
+.modal-header {
+  background: #1c86b9;
+  color: #FFF;
+}
+
+.modal-body {
+  min-height: auto;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+  .modal-body button {
+    margin-right: 10px;
+  }
+
+.add-button-container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+  .add-button-container button {
+    display: inline-flex;
+    min-width: 80px;
+    padding: 10px 14px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #57baa3;
+    background: #57baa3;
+    white-space: nowrap;
+    margin: 0;
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: -0.2px;
+  }
+
+.dropdown-menu{
+    width:100%;
+}
+.dropdown-item{
+    cursor:pointer;
+}

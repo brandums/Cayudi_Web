@@ -1,0 +1,14 @@
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Crear una nueva categoria</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="cleanForm()"></button>
+    </div>
+    <div class="modal-body">
+      <form (submit)="validationForm()">
+        <input class="input-title" placeholder="Nombre de la categoria" type="text" id="Name" name="Name" [(ngModel)]="category.Name" (input)="removeInvalidClass()" required>
+        <button class="create-button" type="submit">Crear Categoria</button>
+      </form>
+    </div>
+  </div>
+</div>

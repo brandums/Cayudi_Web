@@ -1,0 +1,60 @@
+{
+  "name": "eplatformwebapp",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prestart": "node aspnetcore-https",
+    "start": "run-script-os",
+    "start:windows": "ng serve --port 44451 --ssl --ssl-cert \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem\" --ssl-key \"%APPDATA%\\ASP.NET\\https\\%npm_package_name%.key\"",
+    "start:default": "ng serve --port 44451 --ssl --ssl-cert \"$HOME/.aspnet/https/${npm_package_name}.pem\" --ssl-key \"$HOME/.aspnet/https/${npm_package_name}.key\"",
+    "build": "ng build",
+    "build:ssr": "ng run EPlatformWebApp:server:dev",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.2.0",
+    "@angular/common": "^16.2.0",
+    "@angular/compiler": "^16.2.0",
+    "@angular/core": "^16.2.0",
+    "@angular/forms": "^16.2.0",
+    "@angular/platform-browser": "^16.2.0",
+    "@angular/platform-browser-dynamic": "^16.2.0",
+    "@angular/platform-server": "^16.2.0",
+    "@angular/router": "^16.2.0",
+    "@popperjs/core": "^2.11.8",
+    "@videogular/ngx-videogular": "^8.0.0",
+    "bootstrap": "^5.3.1",
+    "cors": "^2.8.5",
+    "jquery": "^3.7.0",
+    "oidc-client": "^1.11.5",
+    "popper.js": "^1.16.0",
+    "run-script-os": "^1.1.6",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.5.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.0",
+    "@angular/cli": "^16.2.0",
+    "@angular/compiler-cli": "^16.2.0",
+    "@types/bootstrap": "^5.2.6",
+    "@types/core-js": "^2.5.5",
+    "@types/jasmine": "~4.3.1",
+    "@types/jasminewd2": "~2.0.10",
+    "@types/node": "^18.16.3",
+    "eslint": "^8.47.0",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.2",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "^2.0.0",
+    "typescript": "~4.9.5"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5",
+    "webpack": "5.81.0"
+  }
+}
