@@ -1,15 +1,45 @@
-# Cayudi - Plataforma Web de Venta de Cursos Online
+# 🎓 Cayudi - Online Course Sales Platform  
 
-Cayudi es una plataforma web innovadora para la venta de cursos online, que ofrece una experiencia de usuario enriquecida y un sistema robusto de gestión de contenidos. Está diseñada para permitir la interacción entre instructores y estudiantes mediante cursos interactivos, pagos seguros y la gestión de contenido multimedia. Además, incluye un sistema de puntuación y un blog interactivo por cada curso.
+Cayudi is an innovative web platform that allows the purchase and management of online courses, providing an interactive and optimized experience for students, instructors, and administrators.  
 
-[visita el sitio](http://cayudi-001-site1.anytempurl.com)
+🔗 [Visit the website](http://cayudi-001-site1.anytempurl.com)  
 
-## Características
+---
 
-- **Autenticación segura**: Implementación de JWT para autenticación y autorización, con encriptación de contraseñas y control de roles (administradores, instructores, estudiantes).
-- **Pagos con Stripe**: Integración con Stripe para la gestión de pagos de suscripción a los cursos y transacciones seguras.
-- **Gestión de contenido multimedia**: Carga, almacenamiento y visualización optimizada de imágenes, videos y documentos.
-- **Sistema de puntuación de cursos**: Los usuarios pueden calificar los cursos del 1 al 5, generando una evaluación automática de satisfacción.
-- **Blog interactivo**: Creación de un blog por curso que permite comentarios, interacciones y "likes", fomentando la comunidad.
-- **Gestión de cursos**: Funciones de creación, edición y asignación de certificados a los participantes tras completar un curso.
-- **Interfaz responsiva**: Interfaz intuitiva y adaptada a dispositivos móviles y de escritorio.
+## 🚀 Key Features  
+
+### 🔐 Secure Authentication  
+- Implementation of JWT for authentication and authorization.  
+- Password encryption and role-based access control (Administrator, Instructor, Student).  
+
+### 💳 Payments with Stripe  
+- Stripe integration for managing subscriptions and secure transactions.  
+
+### 📂 Multimedia Content Management  
+- Uploading and optimization of images, videos, and documents.  
+
+### ⭐ Course Rating System  
+- Students can rate courses from 1 to 5.  
+- Automatic evaluation of satisfaction percentage.  
+
+### 📝 Interactive Blog for Each Course  
+- A dedicated blog for each course with comments, interactions, and likes.  
+
+### 🎓 Course Management and Certification  
+- Creation, editing, and administration of courses and certificates.  
+
+### 📱 Responsive and Intuitive Interface  
+- Optimized experience for mobile and desktop devices.  
+
+---
+
+## 🛠️ Technologies Used  
+
+| Technology   | Purpose                     |
+|--------------|-----------------------------|
+| Angular      | Frontend                    |
+| ASP.NET Core | Backend                     |
+| SQL Server   | Database                    |
+| Stripe API   | Payment Processing          |
+| JWT          | Security and Authentication |
+
