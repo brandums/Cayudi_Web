@@ -3,6 +3,9 @@
 Cayudi is an innovative web platform that allows the purchase and management of online courses, providing an interactive and optimized experience for students, instructors, and administrators.  
 
 🔗 [Visit the website](http://cayudi-001-site1.anytempurl.com)  
+Para tener acceso a cursos sin comprarlos:
+Cuenta administrador: brrandum151@gmail.com
+Contraseña: Brandon151!
 
 ---
 
